@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>ZosfasGen • Generator & Support</title>
+
+  <!-- OpenGraph for Discord embeds -->
+  <meta property="og:title" content="ZosfasGen — Generator, Premium, Tickets & Giveaways"/>
+  <meta property="og:description" content="Login with Discord to generate files, open tickets, check premium/boost, and join giveaways. Safe member dashboard."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="/og.svg"/>
+
+  <meta name="theme-color" content="#0b1633"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles.css"/>
+  <style>
+    /* landing-specific */
+    .hero{
+      padding: 22px 22px 28px;
+      display:grid;
+      gap:18px;
+      text-align:center;
+    }
+    .hero h1{
+      margin:0;
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 900;
+      color: rgba(42,169,255,.94);
+      text-shadow: 0 12px 40px rgba(42,169,255,.14);
+      letter-spacing: .01em;
+    }
+    .hero p{
+      margin:0 auto;
+      max-width: 760px;
+      color: rgba(255,255,255,.58);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 8px;
+    }
+    .btn-lg{
+      padding: 12px 18px;
+      border-radius: 16px;
+      font-weight: 900;
+    }
+    .btn-outline{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(9,16,35,.35);
+      color: rgba(255,255,255,.88);
+    }
+    .grid{
+      padding: 0 22px 26px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:14px;
+    }
+    .mini{
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(8, 14, 33, .35);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      padding: 14px;
+      min-height: 98px;
+    }
+    .mini .k{ font-weight: 900; }
+    .mini .d{ color: rgba(255,255,255,.52); font-size: 13px; margin-top: 6px; line-height: 1.35; }
+    .mini .tag{ display:inline-flex; margin-top: 10px; padding: 4px 10px; border-radius: 999px; border:1px solid rgba(42,169,255,.18); background: rgba(42,169,255,.10); color: rgba(255,255,255,.80); font-size: 12px; font-weight: 800; }
+    .split{
+      padding: 0 22px 22px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 14px;
+    }
+    .panel{ padding: 16px; }
+    .panel h3{ margin:0 0 10px; font-size: 16px; font-weight: 900; }
+    .panel ul{ margin:0; padding-left: 16px; color: rgba(255,255,255,.55); font-size: 13px; line-height: 1.6;}
+    .share-row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .copy{
+      display:flex; gap:10px; align-items:center;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(5,10,25,.34);
+      border-radius: 14px;
+      padding: 10px 12px;
+      flex:1;
+      min-width: 240px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .copy code{
+      color: rgba(255,255,255,.80);
+      font-size: 12px;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display:block;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+      .split{ grid-template-columns: 1fr; }
+      .copy{ min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="pillrow">
+        <a class="pill" href="/howto.html">How to use</a>
+        <a class="pill" href="/app.html">Dashboard</a>
+        <a class="pill" id="discordBtn" href="#" rel="noreferrer">Discord</a>
+      </div>
+      <div class="rightbar">
+        <div class="status">
+          <span class="dot"></span>
+          <span id="onlineCount">— online</span>
+        </div>
+        <button class="login" id="loginBtn">Login</button>
+      </div>
+    </header>
+
+    <main class="center">
+      <div class="stack">
+        <section class="card">
+          <div class="card-inner hero">
+            <h1>ZosfasGen</h1>
+            <p>
+              Member dashboard for generating files, opening support tickets, checking premium/boost, and joining giveaways.
+              Login with Discord to get started.
+            </p>
+            <div class="hero-actions">
+              <button class="primary btn-lg" id="loginBtn2">Login with Discord</button>
+              <a class="pill btn-lg btn-outline" href="/app.html">Open dashboard</a>
+              <a class="pill btn-lg btn-outline" href="/howto.html">How it works</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid">
+          <div class="mini">
+            <div class="k">Generator</div>
+            <div class="d">Search by appid or name — the bot posts the download embed into your files channel.</div>
+            <div class="tag">Fast</div>
+          </div>
+          <div class="mini">
+            <div class="k">Tickets</div>
+            <div class="d">Open a ticket with topics (Game / Premium / Glitches / Other). Auto-delete after 24h.</div>
+            <div class="tag">Support</div>
+          </div>
+          <div class="mini">
+            <div class="k">Giveaways</div>
+            <div class="d">Create & join giveaways. Scheduler auto-ends them and announces winners.</div>
+            <div class="tag">Auto-end</div>
+          </div>
+        </section>
+
+        <section class="split">
+          <div class="card">
+            <div class="card-inner panel">
+              <h3>Quick start</h3>
+              <ul>
+                <li>Click <strong>Login</strong> (Discord).</li>
+                <li>Open <strong>Generator</strong> and search for a game.</li>
+                <li>Need help? Open a <strong>Ticket</strong> from the dashboard.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-inner panel">
+              <h3>Share this</h3>
+              <div class="share-row" style="margin-top:10px;">
+                <div class="copy">
+                  <div style="min-width:54px;font-weight:900;opacity:.7">Link</div>
+                  <code id="shareUrl">—</code>
+                </div>
+                <button class="btn btn-soft" id="copyBtn" title="Copy">📋</button>
+              </div>
+              <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                <a class="btn" id="openDiscord" href="#" rel="noreferrer">Open Discord</a>
+                <a class="btn" href="/howto.html">How to use</a>
+              </div>
+              <div class="hint" style="padding:12px 0 0; margin:0;">
+                If login says “denied”, just try again and accept the Discord prompt.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <span>© <span id="year"></span> ZosfasGen</span>
+          <span class="sep">•</span>
+          <a href="/howto.html" class="footer-link">How to use</a>
+          <span class="sep">•</span>
+          <a href="/app.html" class="footer-link">Dashboard</a>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      const share = document.getElementById('shareUrl');
+      const url = window.location.origin + '/';
+      share.textContent = url;
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      function toast(msg){
+        // small inline toast using existing styles if available
+        alert(msg);
+      }
+
+      document.getElementById('copyBtn').addEventListener('click', async () => {
+        try{
+          await navigator.clipboard.writeText(url);
+          toast('Copied!');
+        }catch{
+          toast('Copy failed — select and copy manually: ' + url);
+        }
+      });
+
+      async function load(){
+        try{
+          const r = await fetch('/api/public');
+          const j = await r.json();
+          const discord = j?.discordInviteUrl || '#';
+          const el1 = document.getElementById('discordBtn');
+          const el2 = document.getElementById('openDiscord');
+          el1.href = discord; el2.href = discord;
+          const on = document.getElementById('onlineCount');
+          on.textContent = (j?.onlineText || 'online');
+        }catch{
+          document.getElementById('onlineCount').textContent = 'online';
+        }
+      }
+      load();
+
+      const goLogin = () => window.location.href = '/auth/discord';
+      document.getElementById('loginBtn').addEventListener('click', goLogin);
+      document.getElementById('loginBtn2').addEventListener('click', goLogin);
+    })();
+  </script>
+</body>
+</html>

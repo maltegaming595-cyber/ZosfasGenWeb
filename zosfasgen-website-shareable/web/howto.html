@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>ZosfasGen • How to use</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css"/>
+  <style>
+    .doc{ padding:18px; }
+    .doc h1{ margin:0 0 8px; font-size:28px; font-weight:900; color:rgba(42,169,255,.92); }
+    .doc p{ margin:0; color:rgba(255,255,255,.58); line-height:1.55; }
+    .steps{ margin-top:14px; display:grid; gap:10px; }
+    .step{ border:1px solid rgba(255,255,255,.08); background: rgba(8,14,33,.35); border-radius: 16px; padding: 12px 14px; }
+    .step b{ display:block; margin-bottom:4px; }
+    .note{ margin-top:10px; color:rgba(255,255,255,.50); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="pillrow">
+        <a class="pill" href="/">Home</a>
+        <a class="pill" href="/app.html">Dashboard</a>
+      </div>
+      <div class="rightbar">
+        <button class="login" onclick="location.href='/auth/discord'">Login</button>
+      </div>
+    </header>
+
+    <main class="center">
+      <div class="stack">
+        <section class="card">
+          <div class="doc">
+            <h1>How to use</h1>
+            <p>Everything here is synced with the Discord bot. Use the dashboard for the same functions as bot commands.</p>
+
+            <div class="steps">
+              <div class="step">
+                <b>1) Login</b>
+                Click <strong>Login</strong> and accept the Discord prompt.
+              </div>
+              <div class="step">
+                <b>2) Generator</b>
+                Search by <strong>appid</strong> or <strong>game name</strong>. The bot posts an embed with a download button to the files channel.
+              </div>
+              <div class="step">
+                <b>3) Tickets</b>
+                Choose a topic (Game / Premium / Glitches / Other). Closing locks the ticket. Tickets auto-delete after 24h.
+              </div>
+              <div class="step">
+                <b>4) Premium / Boost</b>
+                Check your status and remaining time. If you don’t have access, you’ll be redirected to the correct Discord channel.
+              </div>
+              <div class="step">
+                <b>5) Giveaways</b>
+                Join giveaways in Discord. Admins can create them in the dashboard and they auto-end on time.
+              </div>
+            </div>
+
+            <div class="note">
+              If you ever see “access denied” after login, just click Login again — it happens when the permission prompt is cancelled.
+            </div>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <span>© <span id="year"></span> ZosfasGen</span>
+          <span class="sep">•</span>
+          <a href="/" class="footer-link">Home</a>
+          <span class="sep">•</span>
+          <a href="/app.html" class="footer-link">Dashboard</a>
+        </footer>
+      </div>
+    </main>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
