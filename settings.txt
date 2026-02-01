@@ -1,0 +1,41 @@
+# Zosfas Discord Bot Settings
+# KEY=VALUE (comments start with #)
+
+# ---- Discord ----
+DISCORD_TOKEN=MTQ2NzE2NTY1OTEwMzQ5NDM3MQ.GiE02L.fAUnHgl-wbhbJgpYU_OZ_yFgAaUDHP0XOQ1SuA
+CLIENT_ID=1467165659103494371
+GUILD_ID=1328816467411603619
+
+# ---- Mongo ----
+MONGODB_URI=mongodb+srv://Zosfas:Malte2010!@zosfasgen.lobb7x3.mongodb.net/?appName=ZosfasGen
+
+# ---- GitHub ----
+GITHUB_REPO=maltegaming595-cyber/ZosfasGenLocal
+GITHUB_MANIFEST_URL=https://raw.githubusercontent.com/maltegaming595-cyber/ZosfasGenLocal/main/manifest.json
+GITHUB_FALLBACK_TAG=files-000
+
+# ---- Channels ----
+CHANNEL_GENERATE_ONLY=1419025474142863500
+CHANNEL_OUTPUT=1328836147379441684
+CHANNEL_UPDATE_REQUESTS=1420101580132192396
+CHANNEL_LOG=1437110415745093643
+
+# ---- Roles ----
+ROLE_PREMIUM=1426946469046521989
+ROLE_BOOSTER=1342874029261848668
+ROLE_SUPPORT=1358027192356962376
+
+# ---- Links ----
+LINK_DLC=https://github.com/CyberSys/CreamInstaller.git
+LINK_ONLINE=https://online-fix.me/
+LINK_STORE=https://payhip.com/b/p6Ohu
+LINK_PREMIUM=https://payhip.com/b/biaoD
+
+# ---- Limits ----
+FREE_DAILY_GENERATIONS=5
+
+# ---- Feature toggles ----
+FEATURE_TICKETS=true
+FEATURE_CODES=true
+FEATURE_GIVEAWAYS=true
+FEATURE_RATE_LIMIT=true
