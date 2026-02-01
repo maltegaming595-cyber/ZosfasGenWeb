@@ -1,0 +1,19 @@
+{
+  "name": "zosfas-discord-bot",
+  "version": "1.0.0",
+  "description": "ZosfasGen Discord bot (generate embeds, premium, tickets, codes)",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "register": "node register-commands.js",
+    "start:web": "node web.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "discord.js": "^14.20.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.9.5"
+  }
+}
