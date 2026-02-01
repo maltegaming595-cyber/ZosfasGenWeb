@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>ZosfasGen Dashboard</title>
+  <meta property="og:title" content="ZosfasGen Dashboard"/>
+  <meta property="og:description" content="Member dashboard synced with the Discord bot."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="/og.svg"/>
+  <meta name="theme-color" content="#0b1633"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+  <button id="navToggle" class="pill" style="position:fixed;left:18px;top:18px;z-index:20;display:none;">☰ Menu</button>
+
+  <div class="bg">
+    <div class="noise"></div>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo">Z</div>
+          <div class="brandtext">
+            <div class="name">ZosfasGen</div>
+            <div class="tag">synced with Discord</div>
+          </div>
+        </div>
+
+        <nav class="nav" id="nav">
+          <a class="navitem" href="#/generator" data-route="generator">⚡ Generator</a>
+          <a class="navitem" href="#/tickets" data-route="tickets">🎟 Tickets</a>
+          <a class="navitem" href="#/premium" data-route="premium">⭐ Premium</a>
+          <a class="navitem" href="#/boost" data-route="boost">🚀 Boost</a>
+          <a class="navitem" href="#/giveaways" data-route="giveaways">🎉 Giveaways</a>
+          <a class="navitem admin-only" data-admin="1" href="#/codes" data-route="codes">🎫 Codes</a>
+          <div class="navsep"></div>
+          <a class="navitem" href="#/links" data-route="links">🔗 Links</a>
+          <a class="navitem admin-only" data-admin="1" href="#/admin" data-route="admin">🛠 Admin</a>
+          <a class="navitem admin-only" data-admin="1" href="#/settings" data-route="settings">⚙ Settings</a>
+        </nav>
+
+        <div class="sidefoot">
+          <div class="statuspill">
+            <span class="dot"></span>
+            <span id="onlineCount">— members</span>
+          </div>
+          <div class="userbox" id="userbox">
+            <div class="userleft">
+              <div class="avatar" id="avatar"></div>
+              <div class="usertext">
+                <div class="user" id="userLabel">Not logged in</div>
+                <div class="small" id="userHint">Login to use features</div>
+              </div>
+            </div>
+            <div class="useractions">
+              <a class="btn btn-primary" id="loginBtn" href="/auth/discord">Login</a>
+              <button class="btn btn-soft" id="logoutBtn" style="display:none;">Logout</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="top">
+          <div>
+            <div class="pagetitle" id="pageTitle">Generator</div>
+            <div class="pagesub" id="pageSub">Post game links to your Discord output channel.</div>
+          </div>
+          <div class="topactions">
+            <a class="pill" href="#" id="discordLink">Discord</a>
+            <a class="pill" href="#" id="faqLink">FAQ</a>
+          </div>
+        </header>
+
+        <section class="card" id="view"></section>
+
+        <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
+      
+      <section class="card" id="sharePanel" style="margin-top:18px;">
+        <div class="card-inner" style="text-align:center;">
+          <div style="font-weight:900; font-size:16px;">Share</div>
+          <div style="color: rgba(255,255,255,.52); font-size:13px; margin-top:6px;">
+            Share this site with members. Login is required for actions.
+          </div>
+          <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:12px;">
+            <button class="btn" id="copySiteLink">Copy site link</button>
+            <a class="btn" href="/howto.html">How to use</a>
+            <a class="btn" id="shareDiscordLink" href="#" rel="noreferrer">Discord</a>
+          </div>
+          <div style="margin-top:10px; color: rgba(255,255,255,.45); font-size:12px;" id="siteLinkText"></div>
+        </div>
+      </section>
+</main>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
